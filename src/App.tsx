@@ -27,7 +27,7 @@ interface CourseSubmissionPart extends BaseWithDescription {
   exerciseSubmissionLink: string;
 }
 
-type CoursePart = CourseNormalPart | CourseProjectPart | CourseSubmissionPart;
+export type CoursePart = CourseNormalPart | CourseProjectPart | CourseSubmissionPart;
 
 const App = () => {
   const courseName = 'Half Stack application development';
@@ -65,8 +65,7 @@ const App = () => {
       {courseParts.map(part =>
         <Content
           key={part.name}
-          name={part.name}
-          exerciseCount={part.exerciseCount}
+          {...part}
         />
       )}
       <Total

@@ -1,10 +1,13 @@
 import React from 'react';
+import { CoursePart } from '../App';
+import Part from './Part';
 
-const Content = ({ name, exerciseCount }: { name: string, exerciseCount: number}) => {
+const Content = (part: CoursePart) => {
   return (
-      <p>
-        {name} {exerciseCount}
-      </p>
+    <div>
+      <p><strong>{part.name} {part.exerciseCount}</strong></p>
+      <Part {...part} />
+    </div>
   )
 }
 
