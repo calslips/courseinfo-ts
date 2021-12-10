@@ -9,9 +9,12 @@ interface CoursePartBase {
   type: string;
 }
 
-interface CourseNormalPart extends CoursePartBase {
-  type: 'normal';
+interface BaseWithDescription extends CoursePartBase {
   description: string;
+}
+
+interface CourseNormalPart extends BaseWithDescription {
+  type: 'normal';
 }
 
 interface CourseProjectPart extends CoursePartBase {
@@ -19,9 +22,8 @@ interface CourseProjectPart extends CoursePartBase {
   groupProjectCount: number;
 }
 
-interface CourseSubmissionPart extends CoursePartBase {
+interface CourseSubmissionPart extends BaseWithDescription {
   type: 'submission';
-  description: string;
   exerciseSubmissionLink: string;
 }
 
